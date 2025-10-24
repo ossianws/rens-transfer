@@ -48,21 +48,6 @@ def index():
 
 
 
-
-
-
-#data = px.data.iris()
-#fig = px.scatter(data, x="petal_length", y="petal_width", color="species")
-
-#dash_app = Dash(__name__, server=app, url_base_pathname='/dashboard/')
-
-
-
-#dash_app.layout = [html.H1("Welcome to the Dataset Dashboard"),
-#                     dcc.Graph(figure=fig)
-#]
-
-
 #run locally
 if __name__ == '__main__':
     app.run(debug=True)

@@ -6,10 +6,13 @@
       {% else %}
       <title>RENS Dashboard</title>
       {% endif %}
+      <style>.box {display:inline-block;} </style>
     </head>
     <body>
-        <div>Dashboard Home: <a href="/dashboard">Home</a></div>
+        <div>Dashboard Home: <a href="/dashboard">Home</a> Exit to Homepage: <a href="/">Homepage</a></div>
         <hr>
         {% block content %}{% endblock %}
+
+    <footer>RENS in partnership with 180DC.</footer>
     </body>
 </html>

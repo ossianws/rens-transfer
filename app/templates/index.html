@@ -2,17 +2,27 @@
 {% block content %}
     <main class="wrap">
         <section class="card" role="main" aria-labelledby="welcome-title">
-            <h1 id="welcome-title">Welcome to your Dashboard</h1>
-            <p>A minimal starter page — edit index.html to begin building your app.</p>
+            <h1 id="welcome-title">Welcome to the RENS homepage</h1>
+            <p>From here you can launch the dashboard.</p>
             <a class="btn" href="/dashboard" role="button">Launch Dashboard</a>
         
 
-            <p>Below you can see an example of embedding the Dash app:</p>
+            <p>Below you can see an example of embedding a few graphs in iframes:</p>
             <iframe
-                title="Dash App"
+                title="Graph A Embedded"
                 src="/dashboard/A"
-                style="border:none; width:100%; height:600px;"></iframe>
-            <footer>Ready to customize • Built for development</footer>
+                style="border:none; height:300px;"
+                class="box"
+                loading="lazy"
+    ></iframe>
+            <iframe
+                title="Graph B Embedded"
+                src="/dashboard/B"
+                style="border:none; height:300px;"
+                class="box"
+                loading="lazy"
+                ></iframe>
+            
         </section>
     </main>
 {% endblock %}

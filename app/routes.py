@@ -1,15 +1,16 @@
 
-from app import app
-from flask import render_template
+from flask import render_template, Blueprint
 from app.visuals import generate_graph
 
-@app.route('/dashboard')
+main_bp = Blueprint('main', __name__)
+
+@main_bp.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
 
 
 #individual graph endpoint
-@app.route('/dashboard/<graph_id>')
+@main_bp.route('/dashboard/<graph_id>')
 def graph_endpoint(graph_id):
     print(f"Generating graph for ID: {graph_id} with type {type(graph_id)}")
     fig = generate_graph(graph_id)
@@ -21,7 +22,7 @@ def graph_endpoint(graph_id):
 
 
 #non-dash endpoint
-@app.route('/')
+@main_bp.route('/')
 def index():
     return render_template('index.html')
 

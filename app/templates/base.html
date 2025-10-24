@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - RENS Dashboard</title>
+      {% else %}
+      <title>RENS Dashboard</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>Dashboard Home: <a href="/dashboard">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

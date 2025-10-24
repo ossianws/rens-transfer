@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{title}}</title>
+    <script src ="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>body {margin:0;padding:0;}
+        #chart {width: 100%; height: 100vh;}
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <div id="chart"></div>
+        <script>
+            const fig = {{ graph_json | tojson }};
+            
+            Plotly.newPlot('chart', fig.data, fig.layout);
+        </script>
+    </main>
+</body>
+</html>

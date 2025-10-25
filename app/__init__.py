@@ -20,6 +20,4 @@ def create_app():
 
 
 
-#run locally
-if __name__ == '__main__':
-    app.run(debug=True)
+

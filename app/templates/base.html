@@ -6,11 +6,52 @@
       {% else %}
       <title>RENS Dashboard</title>
       {% endif %}
-      <style>.box {display:inline-block;} </style>
+      <style>
+      body {background-color: aliceblue;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      a {text-decoration: none;
+         color: darkcyan;
+      }
+      ul {
+        width: 100%;
+      }
+      header {
+        width:100%;
+        height: auto;
+        background-color: gainsboro;
+      }
+      .flex-container {
+            width:100%;
+            display: flex;
+
+            justify-content: space-evenly;
+      }
+      .header-item {
+        list-style: none;
+        display:inline;
+        padding:1%;
+        justify-content: center;
+      }
+      
+
+
+      .box {display:inline-block;}
+      
+      
+      </style>
     </head>
     <body>
-        <div>Dashboard Home: <a href="/dashboard">Home</a> Exit to Homepage: <a href="/">Homepage</a></div>
+        <header>
+          <div class="flex-container">
+          <ul>
+            <li class="header-item"><a href="/dashboard">Dashboard Main Page</a></li>
+            <li class="header-item"><a href="/">Exit Dashboard to Home</a></li>
+            <li class="header-item"><a href="/upload">Upload More Data</a></li>
+          </ul>
+        </div>
         <hr>
+        </header>
         {% block content %}{% endblock %}
 
     <footer>RENS in partnership with 180DC.</footer>

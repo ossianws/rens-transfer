@@ -1,12 +1,15 @@
 
 from flask import render_template, Blueprint
-from app.visuals import generate_graph
+from app.visuals import generate_graph, get_graph_ids
+
 
 main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    id_list = get_graph_ids()
+
+    return render_template('dashboard.html',frames=id_list)
 
 
 #individual graph endpoint

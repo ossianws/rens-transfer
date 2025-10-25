@@ -10,15 +10,16 @@
         
 
             <p>Here begin our data visuals. Notice they are interactive:</p>
-            <iframe
-                title="Graph A"
-                src="/dashboard/A"
-                style="border:none; width:100%; height:600px;"></iframe>
+
+            {% for graph in frames %}
+
 
             <iframe
-                title="Graph B"
-                src="/dashboard/B"
+                title="{{graph[1]}}"
+                src="/dashboard/{{graph[0]}}"
                 style="border:none; width:100%; height:600px;"></iframe>
+            {%endfor%}
+        
            
         </section>
     </main>

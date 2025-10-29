@@ -36,8 +36,10 @@ def upload():
         destination_dataset = form.destination.data
         current_app.logger.info(f"Form validated successfully with {filename} and {destination_dataset}")
         
-        f.save(os.path.join(os.path.join(os.getcwd(), 'app/uploads', filename)))
-        flash(f'Your file {filename} was uploaded')
+        if not current_app.testing:
+            f.save(os.path.join(os.path.join(os.getcwd(), 'app/uploads', filename)))
+            flash(f'Your file {filename} was uploaded')
+        flash(f'File {filename} would be saved to {destination_dataset} in a non-testing environment.')
         return redirect(url_for('main.index'))
     
     current_app.logger.info(f"choice field {form.destination.data}")

@@ -4,20 +4,20 @@
         <section class="card" role="main" aria-labelledby="welcome-title">
             <h1 id="welcome-title">Welcome to the RENS homepage</h1>
             <p>From here you can launch the dashboard.</p>
-            <a class="btn" href="/dashboard" role="button">Launch Dashboard</a>
+            <a class="btn" href="{{ url_for('main.dashboard') }}" role="button">Launch Dashboard</a>
         
 
             <p>Below you can see an example of embedding a few graphs in iframes:</p>
             <iframe
                 title="Graph A Embedded"
-                src="/dashboard/2"
+                src="{{ url_for('main.graph_endpoint', graph_id=1) }}"
                 style="border:none; height:300px;"
                 class="box"
                 loading="lazy"
     ></iframe>
             <iframe
                 title="Graph B Embedded"
-                src="/dashboard/1"
+                src="{{ url_for('main.graph_endpoint', graph_id=2) }}"
                 style="border:none; height:300px;"
                 class="box"
                 loading="lazy"

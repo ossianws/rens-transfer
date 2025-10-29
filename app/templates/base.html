@@ -45,14 +45,25 @@
         <header>
           <div class="flex-container">
           <ul>
-            <li class="header-item"><a href="/dashboard">Dashboard Main Page</a></li>
-            <li class="header-item"><a href="/">Exit Dashboard to Home</a></li>
-            <li class="header-item"><a href="/upload">Upload More Data</a></li>
+            <li class="header-item"><a href="{{ url_for('main.dashboard') }}">Dashboard Main Page</a></li>
+            <li class="header-item"><a href="{{ url_for('main.index') }}">Exit Dashboard to Home</a></li>
+            <li class="header-item"><a href="{{ url_for('main.upload') }}">Upload More Data</a></li>
           </ul>
         </div>
         <hr>
         </header>
+        <div>
+         {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
+        </div>
 
     <footer>RENS in partnership with 180DC.</footer>
     </body>

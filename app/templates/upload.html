@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Upload Data</h1>
+
+<form method="post" enctype="multipart/form-data" action="{{url_for('main.upload')}}" novalidate>
+    {{ form.hidden_tag() }}
+        <p>
+            {{ form.file_field.label }}<br>
+            {{ form.file_field(size=32) }}
+            {% with errors = form.file_field.errors %}
+            {% if errors %}
+                <ul class="errors">
+                {% for error in errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        </p>
+        <p>
+            {{ form.destination.label }}<br>
+            {{ form.destination() }}
+            {% with errors = form.destination.errors %}
+            {% if errors %}
+                <ul class="errors">
+                {% for error in errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+</form>
+
+
+{% endblock %}

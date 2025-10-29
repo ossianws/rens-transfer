@@ -1,0 +1,228 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:20] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:20] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:23] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:23] "GET /dashboard/1 HTTP/1.1" 200 -
+Form validation failed
+WARNING:app:Form validation failed
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:29] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:29] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:29] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+Form validation failed
+WARNING:app:Form validation failed
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:34] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:34] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:34] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:35] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:35] "GET /dashboard/2 HTTP/1.1" 200 -
+Form validation failed
+WARNING:app:Form validation failed
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+Form validation failed
+WARNING:app:Form validation failed
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "GET /upload-test HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=console.png&s=aiABp1qEm1oFWZcwL6vs HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:43] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+Form validated successfully with option2 and DonationsList.csv
+INFO:app:Form validated successfully with option2 and DonationsList.csv
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:59] "[32mPOST /upload-test HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:59] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:59] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/Oct/2025 23:58:59] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/forms.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:04] "[35m[1mGET /upload HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:04] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:05] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:05] "GET /upload?__debugger__=yes&cmd=resource&f=console.png&s=8dCzXK0mbuxF1yWMvMSj HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:34] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:42] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:04:49] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:05:01] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:05:11] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:06:07] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:07] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:48] "GET /upload-test HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:48] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:48] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=console.png&s=aiABp1qEm1oFWZcwL6vs HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:48] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:48] "[36mGET /upload-test?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+Form validated successfully with option2 and policeforceareatablesyemarch2025.xlsx
+INFO:app:Form validated successfully with option2 and policeforceareatablesyemarch2025.xlsx
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:56] "[32mPOST /upload-test HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:56] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:57] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:07:57] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:31] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:31] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:32] "[35m[1mGET /upload HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:32] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:32] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:32] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:32] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:32] "GET /upload?__debugger__=yes&cmd=resource&f=console.png&s=GH1c8Cp2ZS7afJCrKJON HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:58] "[35m[1mGET /upload HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:58] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:58] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:10:58] "GET /upload?__debugger__=yes&cmd=resource&f=console.png&s=pvtQCpcv6Eyyh7fr1trB HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:06] "[35m[1mGET /upload HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:06] "[36mGET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:06] "[36mGET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:06] "GET /upload?__debugger__=yes&cmd=resource&f=console.png&s=xC2qfBzQp7lf1AIQiaUf HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+choice field None
+INFO:app:choice field None
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:27] "GET /upload HTTP/1.1" 200 -
+choice field dataset2
+INFO:app:choice field dataset2
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:39] "POST /upload HTTP/1.1" 200 -
+choice field dataset1
+INFO:app:choice field dataset1
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:11:55] "POST /upload HTTP/1.1" 200 -
+choice field dataset2
+INFO:app:choice field dataset2
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:12:08] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/forms.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/forms.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/forms.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/forms.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698
+choice field None
+INFO:app:choice field None
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:14:30] "GET /upload HTTP/1.1" 200 -
+Form validated successfully with policeforceareatablesyemarch2025.xlsx and dataset2
+INFO:app:Form validated successfully with policeforceareatablesyemarch2025.xlsx and dataset2
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:14:39] "[32mPOST /upload HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:14:39] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:14:40] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:14:40] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:39] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:39] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:39] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:43] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:43] "GET /dashboard/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:43] "GET /dashboard/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Oct/2025 00:15:43] "GET /dashboard/3 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ossianwatt-smith/Dashboard/rens/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 802-252-698

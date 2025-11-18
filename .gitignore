@@ -6,3 +6,4 @@ app/__pycache__/
 /uploads/
 passenger_wsgi.py
 tmp/
+app.db

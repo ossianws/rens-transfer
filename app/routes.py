@@ -1,9 +1,12 @@
 
 from flask import render_template, Blueprint, url_for, redirect, flash, current_app
 from app.visuals import generate_graph, get_graph_ids
-from app.forms import UploadForm, TestForm
+from app.forms import LoginForm, UploadForm
+from app.data import graph_list
 from werkzeug.utils import secure_filename
+from werkzeug.security import check_password_hash
 import os
+from flask_login import login_user, logout_user, current_user, login_required
 
 
 main_bp = Blueprint('main', __name__)
@@ -18,6 +21,11 @@ def dashboard():
 #individual graph endpoint
 @main_bp.route('/dashboard/<graph_id>')
 def graph_endpoint(graph_id):
+    if not current_user.is_authenticated:
+        if not graph_list[str(graph_id)]['public']:
+            raise Exception("Unauthorized Access to Private Graph")
+        else:
+            pass
     print(f"Generating graph for ID: {graph_id} with type {type(graph_id)}")
     fig = generate_graph(graph_id)
 
@@ -26,6 +34,7 @@ def graph_endpoint(graph_id):
 
 
 @main_bp.route('/upload', methods=['GET','POST'])
+@login_required
 def upload():
     form = UploadForm()
 
@@ -47,11 +56,40 @@ def upload():
 
 
 
-
-
-
 @main_bp.route('/')
 def index():
     return render_template('index.html')
 
 
+@main_bp.route('/login', methods=['GET','POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('main.index'))
+    
+    form = LoginForm()
+    if form.validate_on_submit():
+        username=form.username.data
+        form_password = form.password.data
+
+        admin_user = current_app.config['ADMIN_USER']
+
+        admin_hash = admin_user.password_hash
+        admin_username = admin_user.username
+        if username != admin_username:
+            flash('Invalid username')
+            return redirect(url_for('main.login'))
+        if not check_password_hash(admin_hash,form_password):
+            flash('Wrong password')
+            return redirect(url_for('main.login'))
+        
+        login_user(admin_user,remember=form.remember_me.data)
+        flash('Logged in successfully.')
+        return redirect(url_for('main.index'))
+    
+    return render_template('login.html', form=form)
+
+
+@main_bp.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))

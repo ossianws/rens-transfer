@@ -34,7 +34,19 @@
         justify-content: center;
       }
       
-
+      .error-message {
+        color: red;
+        list-style:none;
+        margin:auto;
+        padding: 1%;
+      }
+      .error-container {
+        width: 100%;
+        background-color: #ffe6e6;
+        border: 3px solid red;
+        margin-bottom: 1%;
+        opacity: 90%;
+      }
 
       .box {display:inline-block;}
       
@@ -48,6 +60,9 @@
             <li class="header-item"><a href="{{ url_for('main.dashboard') }}">Dashboard Main Page</a></li>
             <li class="header-item"><a href="{{ url_for('main.index') }}">Exit Dashboard to Home</a></li>
             <li class="header-item"><a href="{{ url_for('main.upload') }}">Upload More Data</a></li>
+            {% if not current_user.is_authenticated %}<li class="header-item"><a href="{{ url_for('main.login') }}">Login</a></li>{% else %}
+            <li class="header-item"><a href="{{ url_for('main.logout') }}">Logout</a></li>
+            {% endif %}
           </ul>
         </div>
         <hr>
@@ -57,7 +72,9 @@
         {% if messages %}
         <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <div class="error-container">
+            <li class="error-message">{{ message }}</li>
+            </div>
             {% endfor %}
         </ul>
         {% endif %}

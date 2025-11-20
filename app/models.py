@@ -1,5 +1,6 @@
-
-from app import login
+import sqlalchemy as sa
+import sqlalchemy.orm as so
+from app import db,login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask import current_app
@@ -23,7 +24,17 @@ class User(UserMixin):
     def check_password(self, password: str) -> bool:
         return check_password_hash(self.password_hash, password)
     
+class Graph(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(64),unique=True)
+    public: so.Mapped[bool] = so.mapped_column(sa.Boolean(),default=False)
+    data: so.Mapped[str] = so.mapped_column(sa.String(40960))
 
+    def __repr__(self):
+        return f"<Graph {self.name} with id {self.id}>"
+    
+
+    
 
 @login.user_loader
 def load_user(id: str) -> User:

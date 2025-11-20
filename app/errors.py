@@ -1,4 +1,5 @@
 from flask import render_template, Blueprint
+from werkzeug.exceptions import InternalServerError
 
 
 error_bp = Blueprint('errors', __name__)
@@ -10,3 +11,8 @@ def not_found_error(error):
 @error_bp.app_errorhandler(403)
 def forbidden_error(error):
     return render_template('403.html'), 403
+
+@error_bp.app_errorhandler(InternalServerError)
+def application_error(error):
+    return render_template('500.html'), 500
+

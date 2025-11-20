@@ -1,7 +1,8 @@
 
-from flask import render_template, Blueprint, url_for, redirect, flash, current_app
-from app.visuals import generate_graph, get_graph_ids
+from flask import render_template, Blueprint, url_for, redirect, flash, current_app, abort
+from app.test_visuals import generate_graph, get_graph_ids
 from app.forms import LoginForm, UploadForm
+from app.models import Graph
 from app.data import graph_list
 from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash
@@ -17,13 +18,28 @@ def dashboard():
 
     return render_template('dashboard.html',frames=id_list)
 
-
-#individual graph endpoint
 @main_bp.route('/dashboard/<graph_id>')
 def graph_endpoint(graph_id):
+    
+    g = Graph.query.get_or_404(int(graph_id))
+    
+    if not current_user.is_authenticated:
+        if not g.public:
+            abort(403)
+    graph_json = g.data
+    
+    return render_template('graph.html',graph_json=graph_json,graph_id=graph_id)
+
+#individual graph endpoint
+@main_bp.route('/dashboard/test/<graph_id>')
+def test_graph_endpoint(graph_id):
+    try:
+        graph_list[str(graph_id)]
+    except KeyError as k:
+        abort(404)
     if not current_user.is_authenticated:
         if not graph_list[str(graph_id)]['public']:
-            raise Exception("Unauthorized Access to Private Graph")
+            abort(403)
         else:
             pass
     print(f"Generating graph for ID: {graph_id} with type {type(graph_id)}")
@@ -47,8 +63,8 @@ def upload():
         
         if not current_app.testing:
             f.save(os.path.join(os.path.join(os.getcwd(), 'app/uploads', filename)))
-            flash(f'Your file {filename} was uploaded')
-        flash(f'File {filename} would be saved to {destination_dataset} in a non-testing environment.')
+            flash(f'Your file {filename} was uploaded',category='info')
+        flash(f'File {filename} would be saved to {destination_dataset} in a non-testing environment.',category='warning')
         return redirect(url_for('main.index'))
     
     current_app.logger.info(f"choice field {form.destination.data}")
@@ -64,6 +80,7 @@ def index():
 @main_bp.route('/login', methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
+        flash('You are already logged in!',category='info')
         return redirect(url_for('main.index'))
     
     form = LoginForm()
@@ -75,15 +92,13 @@ def login():
 
         admin_hash = admin_user.password_hash
         admin_username = admin_user.username
-        if username != admin_username:
-            flash('Invalid username')
-            return redirect(url_for('main.login'))
-        if not check_password_hash(admin_hash,form_password):
-            flash('Wrong password')
+        if username != admin_username or not check_password_hash(admin_hash,form_password):
+            flash('Invalid username or password',category='error')
             return redirect(url_for('main.login'))
         
         login_user(admin_user,remember=form.remember_me.data)
-        flash('Logged in successfully.')
+        current_app.logger.info("Logged in admin")
+        flash('Logged in successfully.',category='info')
         return redirect(url_for('main.index'))
     
     return render_template('login.html', form=form)
@@ -92,4 +107,10 @@ def login():
 @main_bp.route('/logout')
 def logout():
     logout_user()
+    flash("Successfully logged out.", category='info')
+    current_app.logger.info("Logged out admin")
     return redirect(url_for('main.index'))
+
+@main_bp.route('/internal-error')
+def internal_error():
+    return render_template('does not exist.html')

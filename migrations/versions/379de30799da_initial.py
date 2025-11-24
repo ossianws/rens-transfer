@@ -1,8 +1,8 @@
-"""graphs
+"""initial
 
-Revision ID: 5d86b9c942aa
+Revision ID: 379de30799da
 Revises: 
-Create Date: 2025-11-20 16:49:15.243394
+Create Date: 2025-11-21 23:49:36.893041
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5d86b9c942aa'
+revision = '379de30799da'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=64), nullable=False),
     sa.Column('public', sa.Boolean(), nullable=False),
-    sa.Column('data', sa.String(length=40960), nullable=False),
+    sa.Column('path', sa.String(length=128), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )

@@ -10,14 +10,14 @@
             <p>Below you can see an example of embedding a few graphs in iframes:</p>
             <iframe
                 title="Graph A Embedded"
-                src="{{ url_for('main.graph_endpoint', graph_id=1) }}"
+                src="{{ url_for('graphs.graph_endpoint', graph_id=1) }}"
                 style="border:none; height:300px;"
                 class="box"
                 loading="lazy"
     ></iframe>
             <iframe
                 title="Graph B Embedded"
-                src="{{ url_for('main.graph_endpoint', graph_id=2) }}"
+                src="{{ url_for('graphs.graph_endpoint', graph_id=2) }}"
                 style="border:none; height:300px;"
                 class="box"
                 loading="lazy"

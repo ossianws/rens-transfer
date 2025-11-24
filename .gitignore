@@ -7,3 +7,4 @@ app/__pycache__/
 passenger_wsgi.py
 tmp/
 app.db
+activities_cleaning.py

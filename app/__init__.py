@@ -27,7 +27,7 @@ def create_app(config_class=Config):
     app.register_blueprint(main_bp)
 
     from app.models import User
-    from app.db_init import populate_db,empty_db, generators
+    from app.db_init import populate_db,empty_db, create_generator_dict
     from app.users import user_list
 
     
@@ -39,6 +39,9 @@ def create_app(config_class=Config):
    
     from app.errors import error_bp
     app.register_blueprint(error_bp)
+
+    from app.graphs import bp
+    app.register_blueprint(bp)
 
 
 
@@ -56,14 +59,15 @@ def create_app(config_class=Config):
     app.logger.addHandler(file_handler)
     app.logger.setLevel('INFO')
 
-    with app.app_context():
-        try:
-            populate_db(generators,db)
-        except:
-            app.logger.warning('Exception caught - Database was not empty at initialisation.')
-            if app.config['TESTING']:
-                empty_db(db)
-                populate_db(generators,db)
+    if True:
+        with app.app_context():
+            try:
+                populate_db(create_generator_dict(),db)
+            except:
+                app.logger.warning('Exception caught - Database was not empty at initialisation.')
+                if app.config['TESTING']:
+                    empty_db(db)
+                    populate_db(create_generator_dict(),db)
 
     app.logger.info('App startup')
     

@@ -1,52 +1,50 @@
 
 from flask import render_template, Blueprint, url_for, redirect, flash, current_app, abort
-from app.test_visuals import generate_graph, get_graph_ids
 from app.forms import LoginForm, UploadForm
 from app.models import Graph
-from app.data import graph_list
 from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash
 import os
 from flask_login import login_user, logout_user, current_user, login_required
+from jinja2 import TemplateNotFound
 
 
 main_bp = Blueprint('main', __name__)
 
+
 @main_bp.route('/dashboard')
+@login_required
 def dashboard():
-    id_list = get_graph_ids()
+    id_list = [g.id for g in Graph.query.all()]
 
     return render_template('dashboard.html',frames=id_list)
 
+
+"""
 @main_bp.route('/dashboard/<graph_id>')
 def graph_endpoint(graph_id):
     
     g = Graph.query.get_or_404(int(graph_id))
+
+    
     
     if not current_user.is_authenticated:
         if not g.public:
             abort(403)
-    graph_json = g.data
+    #graph_json = json.dumps(g.data)
     
-    return render_template('graph.html',graph_json=graph_json,graph_id=graph_id)
-
-#individual graph endpoint
-@main_bp.route('/dashboard/test/<graph_id>')
-def test_graph_endpoint(graph_id):
+    name = g.name
     try:
-        graph_list[str(graph_id)]
-    except KeyError as k:
-        abort(404)
-    if not current_user.is_authenticated:
-        if not graph_list[str(graph_id)]['public']:
-            abort(403)
-        else:
-            pass
-    print(f"Generating graph for ID: {graph_id} with type {type(graph_id)}")
-    fig = generate_graph(graph_id)
+        return render_template(f'{name}.html')
+    except TemplateNotFound:
+        abort(404)"""
 
-    graph_json= fig.to_dict()
-    return render_template('graph.html',graph_json=graph_json, graph_id=graph_id)
+@main_bp.route('/graph_tester')
+def graph_tester():
+    return render_template('Line.html')
+
+
+
 
 
 @main_bp.route('/upload', methods=['GET','POST'])

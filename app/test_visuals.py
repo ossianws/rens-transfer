@@ -1,6 +1,26 @@
 
 from app.data import graph_list
 import plotly.graph_objs as go
+import plotly.express as px
+import os
+
+
+
+def test_graph(name,path):
+    data = px.data.iris()['petal_length'],px.data.iris()['petal_width']
+    fig = go.Figure(
+        data=go.Scatter(
+            x=data[0].tolist(),
+            y=data[1].tolist(),
+            mode='markers'
+        ))
+    fig.update_layout(title='Test Database Graph')
+    #fig.show()
+    file_location = os.path.join(os.getcwd(),'app/templates',name,'.html')
+    
+    fig.write_html(file_location,include_plotlyjs='cdn')
+    return file_location
+    
 
 def generate_graph(id):
     data_dict = graph_list[id]

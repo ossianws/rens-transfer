@@ -28,7 +28,7 @@ class Graph(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str] = so.mapped_column(sa.String(64),unique=True)
     public: so.Mapped[bool] = so.mapped_column(sa.Boolean(),default=False)
-    data: so.Mapped[str] = so.mapped_column(sa.String(40960))
+    path: so.Mapped[str] = so.mapped_column(sa.String(128))
 
     def __repr__(self):
         return f"<Graph {self.name} with id {self.id}>"

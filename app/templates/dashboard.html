@@ -1,25 +1,100 @@
 {% extends "base.html" %}
 
+{%block scripts%}
+<script>
+    const toggleUrlTemplate = "{{ url_for('graphs.toggle_graph', graph_id='__GRAPHID__', new_visibility='__VIS__') }}";
+</script>
+<script>
+    function copyEmbedLink(graphId) {
+    const linkElement = document.getElementById(`embed-link-${graphId}`);
+    if (!linkElement) return;
 
+    const textToCopy = linkElement.textContent; 
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            console.log(`Copied link for graph ${graphId} to clipboard`);
+            
+            alert("Embed link copied to clipboard!");
+        })
+        .catch(err => {
+            console.error("Failed to copy:", err);
+        });
+}
+    function updateGraphVisibility(graphId,newVisibility) {
+        const url = toggleUrlTemplate
+    .replace("__GRAPHID__", graphId)
+    .replace("__VIS__", newVisibility);
+        fetch(url, {
+            method:"GET"
+        })
+        .then(response => response.text())
+        .then(data=> {
+            if (data.trim() == "success") {
+                console.log("Visibility updated: ", data);
+                const btn = document.getElementById('make-${newVisibility}-button{{graphId}}');
+                if (btn) {
+                    if (newVisibility==="public") {
+                        btn.textContent = "Make Private";
+                    } else {
+                        btn.textContent = "Make Public";
+                    }
+                }
+                const descriptionPublic = document.getElementById(`public-note${graphId}`)
+                const descriptionPrivate = document.getElementById(`private-note${graphId}`)
+                if (descriptionPublic && descriptionPrivate) {
+                    if (newVisibility==="public") {
+                        console.log('newVisibility is public')
+                        descriptionPublic.style.display='block';
+                        descriptionPrivate.style.display='none';
+                    }
+                    else {
+                        console.log('newVisibility is private')
+                        descriptionPublic.style.display='none';
+                        descriptionPrivate.style.display='block'
+                    }
+                }
+
+            } else {
+                console.error("Server error: ", data);
+            }
+
+        })
+        .catch(error => console.error("Request failed: ",error));
+    }
+</script>
+{%endblock%}
 {% block content %}
     <main class="wrap">
         <section class="card" role="main" aria-labelledby="welcome-title">
             <h1 id="welcome-title">Welcome to your Dashboard</h1>
             <p>This is the main page of the dashboard.</p>
-            
-        
-
             <p>Here begin our data visuals. Notice they are interactive:</p>
 
-            {% for graph_id in frames %}
-
-
-            <iframe
-                
-                src="{{url_for('graphs.graph_endpoint', graph_id=graph_id)}}"
-                style="border:none; width:100%; height:600px;"></iframe>
-            {%endfor%}
-        
+            <div class="dashboard-container">
+                {% for graph in graph_list %}
+                <div class="main-container">
+                    <iframe
+                        src="{{url_for('graphs.graph_endpoint', graph_id=graph.id)}}"
+                        class="iframe-container">
+                    </iframe>
+                    <div class="toggle-container">
+                    
+                    
+                        <p id="public-note{{graph.id}}"
+                        {%if not graph.public%}
+                        style="display:none"{%endif%}>The graph above can be embedded in another website. Embed link:<br>
+                        <a href="{{url_for('graphs.graph_endpoint', graph_id=graph.id)}}">{{url_for('graphs.graph_endpoint', graph_id=graph.id,_external=True)}}</a> <button id="embed-link-{{graph.id}}" onclick="copyEmbedLink({{graph.id}})">Copy link</button><button id="make-private-button{{graph.id}}" onclick='updateGraphVisibility("{{graph.id}}","private")';>Make private</button></p>
+                    
+                    
+                        <p id="private-note{{graph.id}}"
+                        {%if graph.public%}
+                        style="display:none"{%endif%}
+                        >The graph above is private: <button id="makePublicButton{{graph.id}}" onclick='updateGraphVisibility("{{graph.id}}","public")';>Make public</button></p>
+                    
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
            
         </section>
     </main>

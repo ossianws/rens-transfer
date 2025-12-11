@@ -26,7 +26,7 @@ def create_app(config_class=Config):
     from app.routes import main_bp
     app.register_blueprint(main_bp)
 
-    from app.models import User
+    from app.models import User, Graph
     from app.db_init import populate_db,empty_db, create_generator_dict
     from app.users import user_list
 
@@ -59,22 +59,42 @@ def create_app(config_class=Config):
     app.logger.addHandler(file_handler)
     app.logger.setLevel('INFO')
 
-    if True:
-        with app.app_context():
-            try:
-                populate_db(create_generator_dict(),db)
-            except:
-                app.logger.warning('Exception caught - Database was not empty at initialisation.')
-                if app.config['TESTING']:
-                    empty_db(db)
-                    populate_db(create_generator_dict(),db)
+    
 
     app.logger.info('App startup')
     
     
+    @app.cli.command("reset-db")
+    def reset_db():
+        """Empty and repopulate the database."""
+        with app.app_context():
+            from app.db_init import populate_db, empty_db, create_generator_dict
+            empty_db(db)
+            populate_db(create_generator_dict(), db)
+            print("Database cleared and repopulated.")
+    
+    @app.cli.command("regenerate-csv")
+    def regenerate_csv():
+        """Re-clean data from CSV files """
+        from app.data_cleaning import clean_activities_updated, clean_organisations, clean_meetings
+        
+        raw_dir = app.config['RAW_CSV_FOLDER'] or os.join(os.path.dirname(os.path.abspath(__file__)),'datasets/raw')
+        dest_dir = app.config['PROCESSED_CSV_FOLDER'] or os.join(os.path.dirname(os.path.abspath(__file__),'datasets/processed'))
+            
+        for cleaner_function in [clean_activities_updated,clean_organisations,clean_meetings]:
+            df, filename = cleaner_function(raw_dir)
+            filepath = os.path.join(dest_dir,filename)
+            df.to_csv(filepath,index=False)
+            print(f'DF saved to {filepath}')
+            
+        print(f'Finished. Processed data can be found at {dest_dir}')
+    
     return app
 
-#from app import models
+from app import models
+
+
+
 
 
 

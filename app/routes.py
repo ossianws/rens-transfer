@@ -15,9 +15,9 @@ main_bp = Blueprint('main', __name__)
 @main_bp.route('/dashboard')
 @login_required
 def dashboard():
-    id_list = [g.id for g in Graph.query.all()]
+    graph_list = [g for g in Graph.query.all()]
 
-    return render_template('dashboard.html',frames=id_list)
+    return render_template('dashboard.html',graph_list = graph_list)
 
 
 """
